@@ -36,26 +36,5 @@ class Controlador {
         $plantillaUserProfile = str_replace('{name}', $usuario->getEmail(), $plantillaUserProfile);
         
         echo $plantillaUserProfile;
-
-
-//        $listaArtistas = $gestor->getList($paginacion->getPaginaActual(), $orderby, $paginacion->getRpp(), $condicion, $params);
-//        $plantillaArtista = file_get_contents('plantillas/_main.html');
-//
-//        $artistabox = file_get_contents('plantillas/_artistabox.html');
-//        $gestorArtista = new ManageArtista(new DataBase());
-//        $listaArtistas = $gestorArtista->getList();
-//        $listaCuadros = "";
-//        
-//        foreach ($listaArtistas as $key => $value) {
-//            $datosArtista = str_replace('{alias}', $value->getAlias(), $artistabox);
-//            $datosArtista = str_replace('{email}', $value->getEmail(), $datosArtista);
-//            $listaCuadros .= $datosArtista;
-//        }
-//        $plantillaArtista = str_replace("{artistabox}", $listaCuadros, $plantillaArtista);
-//        echo $plantillaArtista;
-    }
-
-    private static function deleteSet($gestor) {
-        
     }
 }

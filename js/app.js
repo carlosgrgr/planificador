@@ -30,10 +30,7 @@
         ajax.setRespuesta(procesarRespuesta);
         ajax.doPeticion();
     }
-
-
-
-
+    
     //Logout
     btlogout.on("click", function (event) {
         event.preventDefault();
@@ -149,8 +146,6 @@
             ajax.setRespuesta(procesarRespuesta);
             ajax.doPeticion();
         });
-
-
     }
 
     //Eliminar eventos
@@ -206,8 +201,6 @@
                         });
                     }
                 });
-
-
     }
     
     
@@ -264,8 +257,6 @@
                         });
                     }
                 });
-
-
     }
 
     //Mostrar eventos (función)
