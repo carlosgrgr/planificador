@@ -12,7 +12,6 @@ class Controlador {
         if (method_exists(get_class(), $metodo)) {
             self::$metodo();
         } else {
-            echo "El método no existe";
             self::loginView();
         }
         
