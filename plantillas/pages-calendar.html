@@ -1,0 +1,636 @@
+<!doctype html>
+<html>
+    <head>
+
+        <!-- Basic -->
+        <meta charset="UTF-8">
+
+        <title>Calendar | SHARED ON THEMELOCK.COM</title>
+        <meta name="keywords" content="HTML5 Admin Template" />
+        <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+        <meta name="author" content="okler.net">
+
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <!-- Web Fonts  -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+        <!-- Vendor CSS -->
+        <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+        <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+        <!-- Specific Page Vendor CSS -->
+        <link rel="stylesheet" href="assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+        <link rel="stylesheet" href="assets/vendor/fullcalendar/fullcalendar.css" />
+        <link rel="stylesheet" href="assets/vendor/fullcalendar/fullcalendar.print.css" media="print" />
+
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+        <!-- Skin CSS -->
+        <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+        <!-- Theme Custom CSS -->
+        <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+
+        <!-- Head Libs -->
+        <script src="assets/vendor/modernizr/modernizr.js"></script>
+
+    </head>
+    <body>
+        <section class="body">
+            <!-- modal dialog 
+            <div class="modal fade modal-form" id="formularioEditar" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="formEditar"
+                              ng-controller="ControladorFormulario as ctrlForm"
+                              ng-submit="ctrlForm.editCiudad(cCiudad.ciudades)">
+                            <div class="modal-header">
+                                Nombre
+                                <input type="text" id="eName" value="" ng-model="ctrlForm.ciudad.Name" /><hr>
+                                Pais
+                                <input type="text" id="CountryCode" value="" ng-model="ctrlForm.ciudad.CountryCode" />
+                                <select ng-model="ctrlForm.ciudad.CountryCode">
+                                    <option value="">&nbsp;</option>
+                                    <option ng-repeat="pais in cCiudad.paises" value="{{pais.Code}}">{{pais.Name}}</option>
+                                </select><hr>
+                                Distrito
+                                <input type="text" id="eDistrict" value="" ng-model="ctrlForm.ciudad.District" /><hr>
+                                Poblacion
+                                <input type="text" id="ePopulation" value="" ng-model="ctrlForm.ciudad.Population" /><hr>
+                                <input type="text" id="eID" value="" ng-model="ctrlForm.ciudad.ID" /><hr>
+
+                            </div>
+                            <div id="mensajeInsertar" ></div>
+                            <div class="modal-footer">
+                                <button id="btEditar" type="submit" class="btn btn-default" >Edit</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- end: modal dialog -->
+
+            <!-- start: header -->
+            <header class="header">
+                <div class="logo-container">
+                    <a href="../" class="logo">
+                        <img src="assets/images/logo.png" height="35" alt="Porto Admin" />
+                    </a>
+                    <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                    </div>
+                </div>
+
+                <!-- start: search & user box -->
+                <div class="header-right">
+
+                    <form action="pages-search-results.html" class="search nav-form">
+                        <div class="input-group input-search">
+                            <input type="text" class="form-control" name="q" id="q" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+
+                    <span class="separator"></span>
+
+                    <ul class="notifications">
+                        <li>
+                            <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                                <i class="fa fa-bell"></i>
+                            </a>  
+                        </li>
+                    </ul>
+
+                    <span class="separator"></span>
+
+                    <div id="userbox" class="userbox">
+                        <a href="#" data-toggle="dropdown">
+                            <figure class="profile-picture">
+                                <img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+                            </figure>
+                            <div class="profile-info">
+                                <span class="name">{name}</span>
+                            </div>
+
+                            <i class="fa custom-caret"></i>
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <ul class="list-unstyled">
+                                <li class="divider"></li>
+                                <li>
+                                    <a role="menuitem" tabindex="-1" href="#"><i class="fa fa-user"></i> My Profile</a>
+                                </li>
+                                <li>
+                                    <a id="btlogout" role="menuitem" tabindex="-1" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: search & user box -->
+            </header>
+            <!-- end: header -->
+
+            <div class="inner-wrapper">
+
+                <section role="main" class="content-body">
+                    <header class="page-header">
+                        <h2>Calendar</h2>
+                    </header>
+
+                    <!-- start: page -->
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div id="calendar" class="fc fc-ltr">
+                                        <table class="fc-header" style="width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="fc-header-left">
+                                                        <span class="fc-header-title">
+                                                            <h2>February 2016</h2>
+                                                        </span>
+                                                    </td> 
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="fc-content" style="">
+                                            <div class="fc-view fc-view-month fc-grid">
+                                                <table class="fc-border-separate" style="width:100%" cellspacing="0">
+                                                    <thead>
+                                                        <tr class="fc-first fc-last">
+                                                            <th class="fc-day-header fc-mon fc-widget-header fc-first" style="width: 183px;">Mon</th>
+                                                            <th class="fc-day-header fc-tue fc-widget-header" style="width: 183px;">Tue</th>
+                                                            <th class="fc-day-header fc-wed fc-widget-header" style="width: 183px;">Wed</th>
+                                                            <th class="fc-day-header fc-thu fc-widget-header" style="width: 183px;">Thu</th>
+                                                            <th class="fc-day-header fc-fri fc-widget-header" style="width: 183px;">Fri</th>
+                                                            <th class="fc-day-header fc-sat fc-widget-header" style="width: 183px;">Sat</th>
+                                                            <th class="fc-day-header fc-sun fc-widget-header fc-last" style="width: 183px;">Sun</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="fc-week fc-first">
+                                                            <td class="fc-day fc-sun fc-widget-content fc-past fc-first" id="dia1">
+                                                                <div style="min-height: 149px;">
+                                                                    <div>
+                                                                        <div class="fc-day-number">1</div>
+                                                                        <div class="fc-day-content">
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-tue fc-widget-content fc-past" id="dia2">
+                                                                <div>
+                                                                    <div class="fc-day-number">2</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-wed fc-widget-content fc-past" id="dia3">
+                                                                <div>
+                                                                    <div class="fc-day-number">3</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-thu fc-widget-content fc-past" id="dia4">
+                                                                <div>
+                                                                    <div class="fc-day-number">4</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-fri fc-widget-content fc-past" id="dia5">
+                                                                <div>
+                                                                    <div class="fc-day-number">5</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-sat fc-widget-content fc-past" id="dia6">
+                                                                <div><div class="fc-day-number">6</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-sat fc-widget-content fc-past fc-last" id="dia7">
+                                                                <div><div class="fc-day-number">7</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="fc-week">
+                                                            <td class="fc-day fc-sun fc-widget-content fc-past fc-first" id="dia8">
+                                                                <div style="min-height: 148px;">
+                                                                    <div class="fc-day-number">8</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-mon fc-widget-content fc-past" id="dia9">
+                                                                <div>
+                                                                    <div class="fc-day-number">9</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-tue fc-widget-content fc-past" id="dia10">
+                                                                <div>
+                                                                    <div class="fc-day-number">10</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-wed fc-widget-content fc-past" id="dia11">
+                                                                <div>
+                                                                    <div class="fc-day-number">11</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-thu fc-widget-content fc-past" id="dia12">
+                                                                <div>
+                                                                    <div class="fc-day-number">12</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-fri fc-widget-content fc-past" id="dia13">
+                                                                <div>
+                                                                    <div class="fc-day-number">13</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-sat fc-widget-content fc-past fc-last" id="dia14">
+                                                                <div>
+                                                                    <div class="fc-day-number">14</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="fc-week">
+                                                            <td class="fc-day fc-sun fc-widget-content fc-past" id="dia15">
+                                                                <div style="min-height: 148px;">
+                                                                    <div class="fc-day-number">15</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-mon fc-widget-content fc-future" id="dia16">
+                                                                <div>
+                                                                    <div class="fc-day-number">16</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-tue fc-widget-content fc-future" id="dia17">
+                                                                <div>
+                                                                    <div class="fc-day-number">17</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-wed fc-widget-content fc-future" id="dia18">
+                                                                <div>
+                                                                    <div class="fc-day-number">18</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-thu fc-widget-content fc-future" id="dia19">
+                                                                <div>
+                                                                    <div class="fc-day-number">19</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-fri fc-widget-content fc-future" id="dia20">
+                                                                <div>
+                                                                    <div class="fc-day-number">20</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-sat fc-widget-content fc-future fc-last" id="dia21">
+                                                                <div>
+                                                                    <div class="fc-day-number">21</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="fc-week">
+                                                            <td class="fc-day fc-sun fc-widget-content fc-future fc-first" id="dia22">
+                                                                <div style="min-height: 148px;">
+                                                                    <div class="fc-day-number">22</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-mon fc-widget-content fc-future" id="dia23">
+                                                                <div>
+                                                                    <div class="fc-day-number">23</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-tue fc-widget-content fc-future" id="dia24">
+                                                                <div>
+                                                                    <div class="fc-day-number">24</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-wed fc-widget-content fc-future" id="dia25">
+                                                                <div>
+                                                                    <div class="fc-day-number">25</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-thu fc-widget-content fc-future" id="dia26">
+                                                                <div>
+                                                                    <div class="fc-day-number">26</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-fri fc-widget-content fc-future" id="dia27">
+                                                                <div>
+                                                                    <div class="fc-day-number">27</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-sat fc-widget-content fc-future fc-last" id="dia28">
+                                                                <div>
+                                                                    <div class="fc-day-number">28</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="fc-week fc-last">
+                                                            <td class="fc-day fc-sun fc-widget-content fc-future fc-first" id="dia29">
+                                                                <div style="min-height: 148px;">
+                                                                    <div class="fc-day-number">29</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-mon fc-widget-content fc-other-month fc-future" data-date="2016-03-1">
+                                                                <div>
+                                                                    <div class="fc-day-number">1</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-tue fc-widget-content fc-other-month fc-future" data-date="2016-03-02">
+                                                                <div>
+                                                                    <div class="fc-day-number">2</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-wed fc-widget-content fc-other-month fc-future" data-date="2016-03-03">
+                                                                <div>
+                                                                    <div class="fc-day-number">3</div>
+                                                                    <div class="fc-day-content">
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-thu fc-widget-content fc-other-month fc-future" data-date="2016-03-04">
+                                                                <div>
+                                                                    <div class="fc-day-number">4</div>
+                                                                    <div class="fc-day-content">
+                                                                        <div style="position: relative; height: 29px;">&nbsp;</div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="c-day fc-sun fc-widget-content fc-other-month fc-future fc-first" data-date="2016-03-05">
+                                                                <div>
+                                                                    <div class="fc-day-number">5</div>
+                                                                    <div class="fc-day-content">
+                                                                        <div style="position: relative; height: 29px;">&nbsp;</div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="fc-day fc-sat fc-widget-content fc-other-month fc-future fc-last" data-date="2016-03-06">
+                                                                <div>
+                                                                    <div class="fc-day-number">6</div>
+                                                                    <div class="fc-day-content">
+                                                                        <div style="position: relative; height: 29px;">&nbsp;</div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <p class="h4 text-light">New Events</p>
+
+                                    <hr />
+
+                                    <div id='external-events'>
+                                        <form class="form-horizontal">
+                                            <h4 class="mb-xlg">Event Information</h4>
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="eventName">Name</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" id="eventName" maxlength="15">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="eventDia">Día</label>
+                                                    <div class="col-md-8">
+                                                        <select name="eventDia" id="eventDia">
+                                                            <option value="">&nbsp;</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                            <option value="13">13</option>
+                                                            <option value="14">14</option>
+                                                            <option value="15">15</option>
+                                                            <option value="16">16</option>
+                                                            <option value="17">17</option>
+                                                            <option value="18">18</option>
+                                                            <option value="19">19</option>
+                                                            <option value="20">20</option>
+                                                            <option value="21">21</option>
+                                                            <option value="22">22</option>
+                                                            <option value="23">23</option>
+                                                            <option value="24">24</option>
+                                                            <option value="25">25</option>
+                                                            <option value="26">26</option>
+                                                            <option value="27">27</option>
+                                                            <option value="28">28</option>
+                                                            <option value="29">29</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="eventHora">Hora:</label>
+                                                    <div class="col-md-8">
+                                                        <select name="eventHora" id="eventHora">
+                                                            <option value="">&nbsp;</option>
+                                                            <option value="8">8:00h</option>
+                                                            <option value="9">9:00h</option>
+                                                            <option value="10">10:00h</option>
+                                                            <option value="11">11:00h</option>
+                                                            <option value="12">12:00h</option>
+                                                            <option value="13">13:00h</option>
+                                                            <option value="14">14:00h</option>
+                                                            <option value="15">15:00h</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <hr class="dotted tall">
+
+                                            <div class="panel-footer">
+                                                <div class="row">
+                                                    <div class="col-md-9 col-md-offset-3">
+                                                        <button id="btnew" type="button" class="btn btn-primary">Insert</button>
+                                                        <button id="btedit" type="button" class="btn btn-primary">Edit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <hr />
+
+                                    </div>
+                                    <div id='external-events'>
+                                        <div class="form-horizontal">
+                                            <h4 class="mb-xlg">Reserve</h4>
+                                                <div class="reserve-box">
+                                                </div>
+                                            
+                                            <hr class="dotted tall">
+
+                                        </div>
+
+                                        <hr />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- end: page -->
+                </section>
+            </div>
+        </section>
+
+        <!-- Vendor -->
+        <script src="assets/vendor/jquery/jquery.js"></script>
+        <script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+        <script src="assets/vendor/nanoscroller/nanoscroller.js"></script>
+        <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
+        <script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+        <!-- Specific Page Vendor -->
+        <script src="assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+        <script src="assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+        <script src="assets/vendor/fullcalendar/lib/moment.min.js"></script>
+        <script src="assets/vendor/fullcalendar/fullcalendar.js"></script>
+
+        <!-- Theme Base, Components and Settings -->
+        <script src="assets/javascripts/theme.js"></script>
+
+        <!-- Theme Custom -->
+        <script src="assets/javascripts/theme.custom.js"></script>
+
+        <!-- Theme Initialization Files -->
+        <script src="assets/javascripts/theme.init.js"></script>
+        
+        <!-- Sweet Alerts -->
+        <script src="assets/sweetalert/dist/sweetalert.min.js" type="text/javascript"></script>
+        <link href="assets/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css"/>
+        
+        <!-- Examples-->
+        <script src="js/ajax.js" type="text/javascript"></script>
+        <script src="js/app.js" type="text/javascript"></script>
+    </body>
+</html>
